@@ -5,7 +5,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 class TabsWeb extends StatefulWidget {
   final title;
-  const TabsWeb(this.title, {super.key});
+  final route;
+  const TabsWeb({super.key, this.title, this.route});
 
   @override
   State<TabsWeb> createState() => _TabsWebState();
@@ -33,7 +34,9 @@ class _TabsMobileState extends State<TabsMobile> {
           widget.text,
           style: GoogleFonts.openSans(fontSize: 20, color: Colors.white),
         ),
-        onPressed: () {});
+        onPressed: () {
+          Navigator.of(context).pushNamed(widget.route);
+        });
   }
 }
 
@@ -41,33 +44,40 @@ class _TabsWebState extends State<TabsWeb> {
   bool select = false;
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-        onEnter: (_) {
-          setState(() {
-            select = true;
-          });
-        },
-        onExit: (_) {
-          setState(() {
-            select = false;
-          });
-        },
-        child: AnimatedDefaultTextStyle(
-          duration: const Duration(milliseconds: 100),
-          curve: Curves.elasticIn,
-          style: select
-              ? GoogleFonts.oswald(
-                  shadows: [Shadow(color: Colors.black, offset: Offset(0, -8))],
-                  color: Colors.transparent,
-                  fontSize: 25,
-                  decoration: TextDecoration.underline,
-                  decorationThickness: 2,
-                  decorationColor: Colors.tealAccent)
-              : GoogleFonts.oswald(color: Colors.black, fontSize: 20),
-          child: Text(
-            widget.title,
-          ),
-        ));
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed(widget.route);
+      },
+      child: MouseRegion(
+          onEnter: (_) {
+            setState(() {
+              select = true;
+            });
+          },
+          onExit: (_) {
+            setState(() {
+              select = false;
+            });
+          },
+          child: AnimatedDefaultTextStyle(
+            duration: const Duration(milliseconds: 100),
+            curve: Curves.elasticIn,
+            style: select
+                ? GoogleFonts.oswald(
+                    shadows: [
+                        Shadow(color: Colors.black, offset: Offset(0, -8))
+                      ],
+                    color: Colors.transparent,
+                    fontSize: 25,
+                    decoration: TextDecoration.underline,
+                    decorationThickness: 2,
+                    decorationColor: Colors.tealAccent)
+                : GoogleFonts.oswald(color: Colors.black, fontSize: 20),
+            child: Text(
+              widget.title,
+            ),
+          )),
+    );
   }
 }
 
@@ -147,7 +157,7 @@ class AnimatedCard extends StatefulWidget {
   const AnimatedCard(
       {super.key,
       @required this.imagePath,
-      @required this.text,
+      this.text,
       this.fit,
       this.reverse,
       this.height,
@@ -206,7 +216,7 @@ class _AnimatedCardState extends State<AnimatedCard>
               SizedBox(
                 height: 10,
               ),
-              SansBold(widget.text, 15)
+              widget.text == null ? SizedBox() : SansBold(widget.text, 15)
             ],
           ),
         ),

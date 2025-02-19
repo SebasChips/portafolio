@@ -70,75 +70,74 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
       body: ListView(
         children: [
           //First section
+          CircleAvatar(
+            radius: 117,
+            backgroundColor: Colors.tealAccent,
+            child: CircleAvatar(
+              radius: 110,
+              backgroundColor: Colors.white,
+              backgroundImage: AssetImage("assets/yop-circle.png"),
+            ),
+          ),
+
           Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              SizedBox(
+                height: 25,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CircleAvatar(
-                    radius: 117,
-                    backgroundColor: Colors.tealAccent,
-                    child: CircleAvatar(
-                      radius: 110,
-                      backgroundColor: Colors.white,
-                      backgroundImage: AssetImage("assets/yop-circle.png"),
-                    ),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.tealAccent,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20),
+                            bottomRight: Radius.circular(20))),
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    child: SansBold("Hello, I'm", 15),
                   ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  SansBold("Sebastián Alberto Alarcón Béjar", 25),
+                  SansBold("Flutter developer", 20)
+                ],
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Wrap(
+                    direction: Axis.vertical,
+                    spacing: 3,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.tealAccent,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20),
-                                bottomRight: Radius.circular(20))),
-                        padding:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                        child: SansBold("Hello, I'm", 15),
-                      ),
-                      SansBold("Sebastián Alberto Alarcón Béjar", 25),
-                      SansBold("Flutter developer", 20)
+                      Icon(Icons.email),
+                      Icon(Icons.call),
+                      Icon(Icons.location_pin),
                     ],
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  SizedBox(width: 40),
+                  Wrap(
+                    direction: Axis.vertical,
+                    spacing: 9,
                     children: [
-                      Wrap(
-                        direction: Axis.vertical,
-                        spacing: 3,
-                        children: [
-                          Icon(Icons.email),
-                          Icon(Icons.call),
-                          Icon(Icons.location_pin),
-                        ],
-                      ),
-                      SizedBox(width: 40),
-                      Wrap(
-                        direction: Axis.vertical,
-                        spacing: 9,
-                        children: [
-                          Sans("sebastianalarconbejar@gmail.com", 15),
-                          Sans("+52 442 323 7924", 15),
-                          Sans("Querétaro, México", 15)
-                        ],
-                      )
+                      Sans("sebastianalarconbejar@gmail.com", 15),
+                      Sans("+52 442 323 7924", 15),
+                      Sans("Querétaro, México", 15)
                     ],
                   )
-                ]),
+                ],
+              )
+            ]),
           ),
           SizedBox(height: 90),
           Padding(
-            padding: EdgeInsets.only(left: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SansBold("About me", 35),
@@ -192,7 +191,31 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
             runSpacing: 20,
             spacing: 20,
             alignment: WrapAlignment.center,
-            children: [SansBold("Contact me", 35)],
+            children: [
+              SansBold("Contact me", 35),
+              TextForm(
+                  "First name", widthDevice / 1.4, "please type first name", 1),
+              TextForm(
+                  "Last name", widthDevice / 1.4, "please type last name", 1),
+              TextForm(
+                  "Email", widthDevice / 1.4, "please type email address", 1),
+              TextForm("Phone number", widthDevice / 1.4,
+                  "please type your phone number", 2),
+              TextForm("Message", widthDevice / 1.4, "Message", 10),
+              MaterialButton(
+                onPressed: () {},
+                elevation: 20,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                height: 60,
+                minWidth: widthDevice / 2.2,
+                color: Colors.tealAccent,
+                child: SansBold("Submit", 20),
+              )
+            ],
+          ),
+          SizedBox(
+            height: 20,
           )
         ],
       ),
