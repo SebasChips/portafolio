@@ -37,8 +37,6 @@ class _ContactMobileState extends State<ContactMobile> {
               SizedBox(height: 20),
               TabsMobile(text: "Works", route: '/works'),
               SizedBox(height: 20),
-              TabsMobile(text: "Blog", route: '/blog'),
-              SizedBox(height: 20),
               TabsMobile(text: "Contact", route: '/contact'),
               SizedBox(height: 40),
               Row(

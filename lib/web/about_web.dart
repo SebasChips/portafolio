@@ -67,8 +67,6 @@ class _AboutWebState extends State<AboutWeb> {
             Spacer(),
             TabsWeb(title: "Works", route: "/works"),
             Spacer(),
-            TabsWeb(title: "Blog", route: "/blog"),
-            Spacer(),
             TabsWeb(title: "About", route: "/about"),
             Spacer(),
             TabsWeb(title: "Contact", route: "/contact"),
@@ -171,10 +169,50 @@ class _AboutWebState extends State<AboutWeb> {
               SizedBox(
                 width: widthDevice / 3,
                 child: Column(
-                  children: [SansBold("App development", 15)],
+                  children: [
+                    SansBold("App development", 30),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Sans("Do you need a jsdkjfalkfd", 15),
+                  ],
+                ),
+              ),
+              AnimatedCard(
+                imagePath: "assets/app.png",
+                height: 250,
+                width: 250,
+                reverse: true,
+              )
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              AnimatedCard(
+                imagePath: "assets/firebase.png",
+                height: 250,
+                width: 250,
+              ),
+              SizedBox(
+                width: widthDevice / 3,
+                child: Column(
+                  children: [
+                    SansBold("Back-end development", 30),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Sans("Do you want ", 15)
+                  ],
                 ),
               )
             ],
+          ),
+          SizedBox(
+            height: 40,
           )
         ],
       ),

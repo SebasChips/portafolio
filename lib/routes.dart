@@ -5,6 +5,9 @@ import 'package:portafolio_project/web/about_web.dart';
 import 'package:portafolio_project/web/landing_page_web.dart';
 import 'package:portafolio_project/web/contact_web.dart';
 import 'package:portafolio_project/mobile/contact_mobile.dart';
+import 'package:portafolio_project/web/works_web.dart';
+
+import 'mobile/works_mobile.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -37,6 +40,16 @@ class Routes {
               return AboutWeb();
             else
               return AboutMobile();
+          }),
+        );
+      case '/works':
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => LayoutBuilder(builder: (context, constrains) {
+            if (constrains.maxWidth > 800)
+              return WorksWeb();
+            else
+              return WorksMobile();
           }),
         );
       default:

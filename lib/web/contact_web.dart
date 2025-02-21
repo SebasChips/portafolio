@@ -100,8 +100,6 @@ class _ContactWebState extends State<ContactWeb> {
                     route: '/works',
                   ),
                   Spacer(),
-                  TabsWeb(title: "Blog", route: '/blog'),
-                  Spacer(),
                   TabsWeb(
                     title: "About",
                     route: '/about',
