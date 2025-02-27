@@ -11,6 +11,13 @@ class ContactWeb extends StatefulWidget {
 }
 
 class _ContactWebState extends State<ContactWeb> {
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController messageController = TextEditingController();
+  final formkey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     var widthDevice = MediaQuery.of(context).size.width;
@@ -72,7 +79,7 @@ class _ContactWebState extends State<ContactWeb> {
       ),
       backgroundColor: Colors.white,
       body: NestedScrollView(
-        headerSliverBuilder: (BuildContext context, bool ineerBoxIsScrolled) {
+        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             SliverAppBar(
               expandedHeight: 400,
@@ -116,6 +123,7 @@ class _ContactWebState extends State<ContactWeb> {
         },
         body: SingleChildScrollView(
           child: Column(
+            key: formkey,
             children: [
               SizedBox(
                 height: 30,
@@ -125,11 +133,21 @@ class _ContactWebState extends State<ContactWeb> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  TextForm("First name", 350, "Please type first name", 1),
+                  TextForm("First name", 350, "Please type first name", 1,
+                      firstNameController, (text) {
+                    if (text.toString().isEmpty) {
+                      return "Last name is required";
+                    }
+                  }),
                   SizedBox(
                     height: 15,
                   ),
-                  TextForm("Email", 350, "Please type email addresss", 1)
+                  TextForm("Email", 350, "Please type email addresss", 1,
+                      emailController, (text) {
+                    if (text.toString().isEmpty) {
+                      return "Last name is required";
+                    }
+                  })
                 ],
               ),
               SizedBox(
@@ -138,31 +156,58 @@ class _ContactWebState extends State<ContactWeb> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  TextForm("Last name", 350, "Please type last name", 1),
+                  TextForm("Last name", 350, "Please type last name", 1,
+                      lastNameController, (text) {
+                    if (text.toString().isEmpty) {
+                      return "Last name is required";
+                    }
+                  }),
                   SizedBox(
                     height: 20,
                   ),
-                  TextForm(
-                      "Phone number", 350, "Please type your phone number", 1)
+                  TextForm("Phone number", 350, "Please type your phone number",
+                      1, phoneController, (text) {
+                    if (text.toString().isEmpty) {
+                      return "Last name is required";
+                    }
+                  })
                 ],
               ),
               SizedBox(
                 height: 20,
               ),
-              TextForm(
-                  "Message", widthDevice / 1.5, "Please type your message", 10),
+              TextForm("Message", widthDevice / 1.5, "Please type your message",
+                  10, messageController, (text) {
+                if (text.toString().isEmpty) {
+                  return "Last name is required";
+                }
+              }),
               SizedBox(
                 height: 20,
               ),
               MaterialButton(
-                onPressed: () {},
                 elevation: 20,
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 height: 60,
                 minWidth: 200,
                 color: Colors.tealAccent,
                 child: SansBold("Submit", 20),
+                onPressed: () async {
+                  final addData = AddDataFirestore();
+                  if (formkey.currentState!.validate()) {
+                    await addData.addResponse(
+                      firstNameController.text,
+                      lastNameController.text,
+                      emailController.text,
+                      phoneController.text,
+                      messageController.text,
+                    );
+                    formkey.currentState!.reset();
+                    DialogError(context);
+                  }
+                },
               ),
               SizedBox(
                 height: 10,

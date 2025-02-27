@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:logger/logger.dart';
 
 class TabsWeb extends StatefulWidget {
   final title;
@@ -71,7 +73,7 @@ class _TabsWebState extends State<TabsWeb> {
                     fontSize: 25,
                     decoration: TextDecoration.underline,
                     decorationThickness: 2,
-                    decorationColor: Colors.tealAccent)
+                    decorationColor: Colors.deepPurple)
                 : GoogleFonts.oswald(color: Colors.black, fontSize: 20),
             child: Text(
               widget.title,
@@ -100,10 +102,13 @@ class Sans extends StatelessWidget {
   const Sans(this.text, this.size);
   @override
   Widget build(BuildContext context) {
-    return Text(text,
-        style: GoogleFonts.openSans(
-          fontSize: size,
-        ));
+    return Text(
+      text,
+      textAlign: TextAlign.justify,
+      style: GoogleFonts.openSans(
+        fontSize: size,
+      ),
+    );
   }
 }
 
@@ -111,35 +116,44 @@ class TextForm extends StatelessWidget {
   final text;
   final ContainerWidth;
   final hintText;
-  final int? maxLines;
+  final int maxLines;
+  final controller;
+  final validator;
+
   const TextForm(@required this.text, @required this.ContainerWidth,
-      @required this.hintText, this.maxLines);
+      @required this.hintText, this.maxLines, this.controller, this.validator);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Sans(text, 16),
+        Sans(text, 16.0),
         SizedBox(
-          height: 5,
+          height: 5.0,
         ),
         SizedBox(
           width: ContainerWidth,
           child: TextFormField(
+            validator: validator,
+            controller: controller,
             maxLines: maxLines == null ? null : maxLines,
             decoration: InputDecoration(
+                errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red),
+                    borderRadius: BorderRadius.all(Radius.circular(15.0))),
                 focusedErrorBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.teal),
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.teal),
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
                 focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.tealAccent, width: 2),
-                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                    borderSide:
+                        BorderSide(color: Colors.deepPurple, width: 2.0),
+                    borderRadius: BorderRadius.all(Radius.circular(15.0))),
                 hintText: hintText,
-                hintStyle: GoogleFonts.poppins(fontSize: 14)),
+                hintStyle: GoogleFonts.poppins(fontSize: 14.0)),
           ),
         ),
       ],
@@ -175,8 +189,8 @@ class _AnimatedCardState extends State<AnimatedCard>
   )..repeat(reverse: true);
 
   late Animation<Offset> _animation = Tween(
-    begin: widget.reverse == true ? Offset(0, 0.08) : Offset.zero,
-    end: widget.reverse == true ? Offset.zero : Offset(0, 0.08),
+    begin: widget.reverse == true ? Offset(0.0, 0.08) : Offset.zero,
+    end: widget.reverse == true ? Offset.zero : Offset(0.0, 0.08),
   ).animate(_controller);
 
   @override
@@ -196,12 +210,12 @@ class _AnimatedCardState extends State<AnimatedCard>
     return SlideTransition(
       position: _animation,
       child: Card(
-        elevation: 30,
+        elevation: 30.0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-          side: BorderSide(color: Colors.tealAccent),
+          borderRadius: BorderRadius.circular(15.0),
+          side: BorderSide(color: Colors.deepPurple),
         ),
-        shadowColor: Colors.tealAccent,
+        shadowColor: Colors.deepPurple,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -209,14 +223,22 @@ class _AnimatedCardState extends State<AnimatedCard>
             children: [
               Image.asset(
                 widget.imagePath,
-                height: widget.height == null ? 200 : widget.height,
-                width: widget.width == null ? 200 : widget.width,
+                height: widget.height == null ? 200.0 : widget.height,
+                width: widget.width == null ? 200.0 : widget.width,
                 fit: widget.fit == null ? null : widget.fit,
               ),
               SizedBox(
-                height: 10,
+                height: 10.0,
               ),
-              widget.text == null ? SizedBox() : SansBold(widget.text, 15)
+              widget.text == null
+                  ? SizedBox()
+                  : Text(
+                      widget.text,
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.openSans(
+                        fontSize: 15,
+                      ),
+                    )
             ],
           ),
         ),
@@ -256,7 +278,7 @@ class tealContainer extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(
-              color: Colors.tealAccent, style: BorderStyle.solid, width: 2),
+              color: Colors.deepPurple, style: BorderStyle.solid, width: 2),
           borderRadius: BorderRadius.circular(5)),
       padding: EdgeInsets.all(7),
       child: Text(
@@ -267,4 +289,33 @@ class tealContainer extends StatelessWidget {
       ),
     );
   }
+}
+
+class AddDataFirestore {
+  var logger = Logger();
+  CollectionReference response =
+      FirebaseFirestore.instance.collection(('messages'));
+  Future<void> addResponse(final firstName, final lastName, final email,
+      final phoneNumber, final message) async {
+    return response
+        .add({
+          'first name': firstName,
+          'last name': lastName,
+          'email': email,
+          'phone': phoneNumber,
+          'message': message,
+        })
+        .then((value) => logger.d("Success"))
+        .catchError((error) => logger.d(error));
+  }
+}
+
+Future DialogError(BuildContext context) {
+  return showDialog(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0)),
+            title: SansBold("Message submited", 20.0),
+          ));
 }

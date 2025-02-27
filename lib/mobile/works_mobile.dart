@@ -20,7 +20,7 @@ class _WorksMobileState extends State<WorksMobile> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        elevation: 0,
+        elevation: 0.0,
         iconTheme: IconThemeData(size: 35.5, color: Colors.black),
       ),
       endDrawer: Drawer(
@@ -28,19 +28,21 @@ class _WorksMobileState extends State<WorksMobile> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             DrawerHeader(
-                padding: EdgeInsets.only(bottom: 20),
+                padding: EdgeInsets.only(bottom: 20.0),
                 child: Container(
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      border: Border.all(width: 2, color: Colors.black)),
+                      border: Border.all(width: 2.0, color: Colors.black)),
                   child: Image.asset('assets/yop-circle.png'),
                 )),
             TabsMobile(text: "Home", route: '/'),
-            SizedBox(height: 20),
+            SizedBox(height: 20.0),
+            TabsMobile(text: "About", route: '/about'),
+            SizedBox(height: 20.0),
             TabsMobile(text: "Works", route: '/works'),
-            SizedBox(height: 20),
+            SizedBox(height: 20.0),
             TabsMobile(text: "Contact", route: '/contact'),
-            SizedBox(height: 40),
+            SizedBox(height: 40.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -50,7 +52,7 @@ class _WorksMobileState extends State<WorksMobile> {
                     icon: SvgPicture.asset(
                       "assets/instagram.svg",
                       color: Colors.black,
-                      width: 35,
+                      width: 35.0,
                     )),
                 IconButton(
                     onPressed: () async =>
@@ -58,7 +60,7 @@ class _WorksMobileState extends State<WorksMobile> {
                     icon: SvgPicture.asset(
                       "assets/github.svg",
                       color: Colors.black,
-                      width: 35,
+                      width: 35.0,
                     )),
               ],
             )
@@ -71,28 +73,28 @@ class _WorksMobileState extends State<WorksMobile> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                height: 20,
+                height: 20.0,
               ),
-              SansBold("Works", 35),
+              SansBold("Works", 35.0),
               SizedBox(
-                height: 20,
+                height: 20.0,
               ),
               AnimatedCard(
                 imagePath: "assets/app.png",
                 fit: BoxFit.contain,
-                height: 150,
-                width: 300,
+                height: 150.0,
+                width: 300.0,
               ),
               SizedBox(
-                height: 30,
+                height: 30.0,
               ),
-              SansBold("Portafolio", 20),
+              SansBold("Portafolio", 20.0),
               SizedBox(
-                height: 10,
+                height: 10.0,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Sans("Super project", 15),
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Sans("Super project", 15.0),
               )
             ],
           ),
