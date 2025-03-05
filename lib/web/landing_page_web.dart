@@ -142,61 +142,60 @@ class _LandingPageWebState extends State<LandingPageWeb> {
           ),
           //Second section
           Container(
-              height: heightDevice - 1.5,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset(
+                "assets/works.jpg",
+                height: heightDevice / 1.5,
+                width: widthDevice / 2,
+                fit: BoxFit.cover,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    "assets/works.jpg",
-                    height: widthDevice / 1.2,
-                    width: widthDevice / 2,
-                    fit: BoxFit.cover,
+                  SansBold("About me", 38),
+                  SizedBox(
+                    height: 15,
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  SizedBox(
+                    width: 400,
+                    child: Sans(
+                        "I am a Software Engineer with a strong passion for web and mobile application development. Committed to building optimized, secure, and scalable solutions while adhering to best coding practices.",
+                        15),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SansBold("Backend", 15),
+                  Wrap(
+                    spacing: 7.0,
+                    runSpacing: 7.0,
                     children: [
-                      SansBold("About me", 38),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      SizedBox(
-                        width: 400,
-                        child: Sans(
-                            "I am a Software Engineer with a strong passion for web and mobile application development. Committed to building optimized, secure, and scalable solutions while adhering to best coding practices.",
-                            15),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      SansBold("Backend", 15),
-                      Wrap(
-                        spacing: 7.0,
-                        runSpacing: 7.0,
-                        children: [
-                          tealContainer(text: "NodeJs"),
-                          tealContainer(text: "Firebase"),
-                          tealContainer(text: "JWT")
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      SansBold("Frontend", 15),
-                      Wrap(
-                        spacing: 7.0,
-                        runSpacing: 7.0,
-                        children: [
-                          tealContainer(text: "Flutter"),
-                          tealContainer(text: "Bootstrap"),
-                          tealContainer(text: "CSS")
-                        ],
-                      )
+                      tealContainer(text: "NodeJs"),
+                      tealContainer(text: "Firebase"),
+                      tealContainer(text: "JWT")
                     ],
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SansBold("Frontend", 15),
+                  Wrap(
+                    spacing: 7.0,
+                    runSpacing: 7.0,
+                    children: [
+                      tealContainer(text: "Flutter"),
+                      tealContainer(text: "Bootstrap"),
+                      tealContainer(text: "CSS")
+                    ],
+                  )
                 ],
-              )),
+              ),
+            ],
+          )),
           //Third section
           Container(
             height: heightDevice / 1.3,
@@ -218,8 +217,6 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                     AnimatedCard(
                       imagePath: "assets/app.png",
                       text: "App development",
-                      fit: BoxFit.contain,
-                      reverse: true,
                     )
                   ],
                 )

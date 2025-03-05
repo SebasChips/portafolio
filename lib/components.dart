@@ -30,7 +30,7 @@ class _TabsMobileState extends State<TabsMobile> {
         elevation: 20,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         height: 20,
-        color: Colors.black,
+        color: Color.fromRGBO(87, 61, 145, 1),
         minWidth: 200,
         child: Text(
           widget.text,
@@ -143,10 +143,10 @@ class TextForm extends StatelessWidget {
                     borderSide: BorderSide(color: Colors.red),
                     borderRadius: BorderRadius.all(Radius.circular(15.0))),
                 focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.teal),
+                    borderSide: BorderSide(color: Colors.deepPurple),
                     borderRadius: BorderRadius.all(Radius.circular(10.0))),
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.teal),
+                    borderSide: BorderSide(color: Colors.deepPurple),
                     borderRadius: BorderRadius.all(Radius.circular(10.0))),
                 focusedBorder: OutlineInputBorder(
                     borderSide:
@@ -219,7 +219,7 @@ class _AnimatedCardState extends State<AnimatedCard>
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(
                 widget.imagePath,
@@ -236,8 +236,7 @@ class _AnimatedCardState extends State<AnimatedCard>
                       widget.text,
                       textAlign: TextAlign.center,
                       style: GoogleFonts.openSans(
-                        fontSize: 15,
-                      ),
+                          fontSize: 15, fontWeight: FontWeight.bold),
                     )
             ],
           ),

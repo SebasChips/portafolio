@@ -78,8 +78,8 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
         body: ListView(
           children: [
             CircleAvatar(
-              radius: 117.0,
-              backgroundColor: Colors.tealAccent,
+              radius: 113.0,
+              backgroundColor: Colors.deepPurple,
               child: CircleAvatar(
                 radius: 110.0,
                 backgroundColor: Colors.white,
@@ -99,17 +99,17 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                              color: Colors.tealAccent,
+                              color: Colors.deepPurple[50],
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(20.0),
                                   topRight: Radius.circular(20.0),
                                   bottomRight: Radius.circular(20.0))),
                           padding: EdgeInsets.symmetric(
                               vertical: 10.0, horizontal: 20.0),
-                          child: SansBold("Hello, I'm", 15.0),
+                          child: SansBold("Hey I'm", 15.0),
                         ),
                         SansBold("Sebastián Alberto Alarcón Béjar", 25.0),
-                        SansBold("Flutter developer", 20.0)
+                        Sans("Web and mobile developer", 18.0)
                       ],
                     ),
                     SizedBox(
@@ -141,7 +141,7 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
                     )
                   ]),
             ),
-            SizedBox(height: 90.0),
+            SizedBox(height: 40.0),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: Column(
@@ -149,15 +149,31 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SansBold("About me", 35.0),
-                  Sans("Hello my name is Sebastián...", 15.0),
+                  Sans(
+                      "I am a Software Engineer with a strong passion for web and mobile application development. Committed to building optimized, secure, and scalable solutions while adhering to best coding practices.",
+                      15.0),
                   SizedBox(height: 10.0),
+                  SansBold("Backend", 15),
+                  Wrap(
+                    spacing: 7.0,
+                    runSpacing: 7.0,
+                    children: [
+                      tealContainer(text: "NodeJs"),
+                      tealContainer(text: "Firebase"),
+                      tealContainer(text: "JWT")
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SansBold("Frontend", 15),
                   Wrap(
                     spacing: 7.0,
                     runSpacing: 7.0,
                     children: [
                       tealContainer(text: "Flutter"),
-                      tealContainer(text: "Firebase"),
-                      tealContainer(text: "Android")
+                      tealContainer(text: "Bootstrap"),
+                      tealContainer(text: "CSS")
                     ],
                   )
                 ],
@@ -178,8 +194,8 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
                 ),
                 SizedBox(height: 35.0),
                 AnimatedCard(
-                  imagePath: "assets/firebase.png",
-                  text: "Firebase",
+                  imagePath: "assets/software.png",
+                  text: "Software engineering",
                   width: 300.0,
                   height: 300.0,
                 ),
@@ -192,26 +208,41 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
                 ),
               ],
             ),
+            SizedBox(
+              height: 60.0,
+            ),
             Wrap(
               runSpacing: 20.0,
               spacing: 20.0,
               alignment: WrapAlignment.center,
               children: [
                 SansBold("Contact me", 35.0),
-                TextForm("First name", widthDevice / 1.4,
-                    "please type first name", 1, firstNameController, (text) {
+                TextForm(
+                    "First name",
+                    widthDevice / 1.4,
+                    "Please type your first name",
+                    1,
+                    firstNameController, (text) {
                   if (text.toString().isEmpty) {
                     return "Last name is required";
                   }
                 }),
-                TextForm("Last name", widthDevice / 1.4,
-                    "please type last name", 1, lastNameController, (text) {
+                TextForm(
+                    "Last name",
+                    widthDevice / 1.4,
+                    "Please type your last name",
+                    1,
+                    lastNameController, (text) {
                   if (text.toString().isEmpty) {
                     return "Last name is required";
                   }
                 }),
-                TextForm("Email", widthDevice / 1.4,
-                    "please type email address", 1, emailController, (text) {
+                TextForm(
+                    "Email",
+                    widthDevice / 1.4,
+                    "Please type your email address",
+                    1,
+                    emailController, (text) {
                   if (text.toString().isEmpty) {
                     return "Last name is required";
                   }
@@ -219,7 +250,7 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
                 TextForm(
                     "Phone number",
                     widthDevice / 1.4,
-                    "please type your phone number",
+                    "Please type your phone number",
                     2,
                     phoneController, (text) {
                   if (text.toString().isEmpty) {
@@ -239,7 +270,7 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
                   ),
                   height: 60,
                   minWidth: 200,
-                  color: Colors.tealAccent,
+                  color: Colors.deepPurple[100],
                   child: SansBold("Submit", 20),
                   onPressed: () async {
                     final addData = AddDataFirestore();
