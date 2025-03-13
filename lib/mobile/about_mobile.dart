@@ -72,10 +72,10 @@ class _AboutMobileState extends State<AboutMobile> {
           children: [
             CircleAvatar(
               radius: 117.0,
-              backgroundColor: Colors.tealAccent,
+              backgroundColor: Colors.deepPurple[50],
               child: CircleAvatar(
-                radius: 113.0,
-                backgroundColor: Colors.black,
+                radius: 114.0,
+                backgroundColor: Colors.white,
                 child: CircleAvatar(
                   radius: 110.0,
                   backgroundColor: Colors.white,
@@ -95,15 +95,29 @@ class _AboutMobileState extends State<AboutMobile> {
                 children: [
                   SansBold("About me", 35.0),
                   SizedBox(height: 10.0),
-                  Sans("Hello my name is Sebastián...", 15.0),
+                  SansBold("Hello! I'm Sebastián", 15.0),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Sans(
+                      "I'm a web & mobile developer searching for new projects",
+                      15),
+                  Sans(
+                      "and challenges to achieve, implementing methologies like",
+                      15),
+                  Sans("Design thinking, DevOps, Scrum and IaC.", 15),
+                  SizedBox(
+                    height: 10,
+                  ),
                   SizedBox(height: 15.0),
                   Wrap(
                     spacing: 7.0,
                     runSpacing: 7.0,
                     children: [
                       tealContainer(text: "Flutter"),
+                      tealContainer(text: "React"),
                       tealContainer(text: "Firebase"),
-                      tealContainer(text: "Android")
+                      tealContainer(text: "MySql"),
                     ],
                   )
                 ],
@@ -114,7 +128,7 @@ class _AboutMobileState extends State<AboutMobile> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 AnimatedCard(
-                  imagePath: "/assets/webL.png",
+                  imagePath: "assets/webL.png",
                   width: 200.0,
                 ),
                 SizedBox(
@@ -127,8 +141,31 @@ class _AboutMobileState extends State<AboutMobile> {
               ],
             ),
             Sans(
-                "I'm here to build your presence online with state of art apps",
-                20.0),
+                "Creation of responsive, scalable, and secure web solutions, designed to deliver optimal performance and meet the unique needs of each project.",
+                15.0),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 20.0,
+                ),
+                AnimatedCard(
+                  imagePath: "assets/software.png",
+                  width: 200.0,
+                  reverse: true,
+                ),
+                SizedBox(
+                  height: 30.0,
+                ),
+                SansBold("Software engineering", 20.0),
+                SizedBox(
+                  height: 10.0,
+                )
+              ],
+            ),
+            Sans(
+                "End-to-end software engineering solutions, focusing on building efficient, maintainable, and scalable applications tailored to meet diverse user needs and business goals.",
+                15.0),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -138,7 +175,6 @@ class _AboutMobileState extends State<AboutMobile> {
                 AnimatedCard(
                   imagePath: "assets/app.png",
                   width: 200.0,
-                  reverse: true,
                 ),
                 SizedBox(
                   height: 30.0,
@@ -150,28 +186,8 @@ class _AboutMobileState extends State<AboutMobile> {
               ],
             ),
             Sans(
-                "Do you need a high performance, responsive and beautiful app? Don't worry I've got you cover",
-                15.0),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 20.0,
-                ),
-                AnimatedCard(
-                  imagePath: "assets/firebase.png",
-                  width: 200.0,
-                ),
-                SizedBox(
-                  height: 30.0,
-                ),
-                SansBold("Backend development", 20.0),
-                SizedBox(
-                  height: 10.0,
-                )
-              ],
-            ),
-            Sans("Do you want your back-end to be highly secure?", 15.0)
+                "Multiplatform and native Android app development, designed to be flexible and adaptable to any specific need or requirement.",
+                15.0)
           ],
         ),
       ),

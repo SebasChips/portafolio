@@ -22,7 +22,7 @@ class _AboutWebState extends State<AboutWeb> {
           children: [
             CircleAvatar(
               radius: 72,
-              backgroundColor: Colors.tealAccent,
+              backgroundColor: Colors.white,
               child: CircleAvatar(
                 radius: 69,
                 backgroundColor: Colors.white,
@@ -32,7 +32,7 @@ class _AboutWebState extends State<AboutWeb> {
             SizedBox(
               height: 15,
             ),
-            SansBold("Sebastián Alberto Alarcón Béjar", 25),
+            SansBold("Sebastián Alarcón Béjar", 25),
             SizedBox(
               height: 15,
             ),
@@ -42,9 +42,6 @@ class _AboutWebState extends State<AboutWeb> {
                 UrlLinks(
                     url: "https://www.instagram.com/sebas.chips/",
                     image: "assets/instagram.svg"),
-                UrlLinks(
-                    url: "https://www.twitter.com/tomcruise/",
-                    image: "assets/twitter.svg"),
                 UrlLinks(
                     url: "https://www.github.com/SebasChips/",
                     image: "assets/github.svg"),
@@ -90,13 +87,17 @@ class _AboutWebState extends State<AboutWeb> {
                     SizedBox(
                       height: 15,
                     ),
-                    Sans("Hello! I'm Sebastián", 15),
+                    SansBold("Hello! I'm Sebastián", 15),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Sans(
-                        "I Strive to ensure astounding performance with state of",
+                        "I'm a web & mobile developer searching for new projects",
                         15),
                     Sans(
-                        "The art security for Android,Ios, Web, Mac, Linux nad ",
+                        "and challenges to achieve, implementing methologies like",
                         15),
+                    Sans("Design thinking, DevOps, Scrum and IaC.", 15),
                     SizedBox(
                       height: 10,
                     ),
@@ -106,15 +107,15 @@ class _AboutWebState extends State<AboutWeb> {
                         SizedBox(
                           width: 7,
                         ),
-                        tealContainer(text: "Firebasea"),
+                        tealContainer(text: "React"),
                         SizedBox(
                           width: 7,
                         ),
-                        tealContainer(text: "Android"),
+                        tealContainer(text: "Firebase"),
                         SizedBox(
                           width: 7,
                         ),
-                        tealContainer(text: "Ios"),
+                        tealContainer(text: "MySql"),
                         SizedBox(
                           width: 7,
                         )
@@ -124,10 +125,10 @@ class _AboutWebState extends State<AboutWeb> {
                 ),
                 CircleAvatar(
                   radius: 143,
-                  backgroundColor: Colors.tealAccent,
+                  backgroundColor: Colors.deepPurple[50],
                   child: CircleAvatar(
                     child: Image.asset(
-                      ("asssets/yop-circle.png"),
+                      ("assets/yop-circle.png"),
                       filterQuality: FilterQuality.high,
                     ),
                     radius: 140,
@@ -149,11 +150,13 @@ class _AboutWebState extends State<AboutWeb> {
                 width: widthDevice / 3,
                 child: Column(
                   children: [
-                    SansBold("Web devolopment", 30),
+                    SansBold("Web development", 30),
                     SizedBox(
                       height: 15,
                     ),
-                    Sans("Im here to do stuff", 15)
+                    Sans(
+                        "Creation of responsive, scalable, and secure web solutions, designed to deliver optimal performance and meet the unique needs of each project.",
+                        15)
                   ],
                 ),
               )
@@ -170,16 +173,18 @@ class _AboutWebState extends State<AboutWeb> {
                 width: widthDevice / 3,
                 child: Column(
                   children: [
-                    SansBold("App development", 30),
+                    SansBold("Software engineering", 30),
                     SizedBox(
                       height: 15,
                     ),
-                    Sans("Do you need a jsdkjfalkfd", 15),
+                    Sans(
+                        "End-to-end software engineering solutions, focusing on building efficient, maintainable, and scalable applications tailored to meet diverse user needs and business goals.",
+                        15),
                   ],
                 ),
               ),
               AnimatedCard(
-                imagePath: "assets/app.png",
+                imagePath: "assets/software.png",
                 height: 250,
                 width: 250,
                 reverse: true,
@@ -193,7 +198,7 @@ class _AboutWebState extends State<AboutWeb> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               AnimatedCard(
-                imagePath: "assets/firebase.png",
+                imagePath: "assets/app.png",
                 height: 250,
                 width: 250,
               ),
@@ -201,11 +206,13 @@ class _AboutWebState extends State<AboutWeb> {
                 width: widthDevice / 3,
                 child: Column(
                   children: [
-                    SansBold("Back-end development", 30),
+                    SansBold("App development", 30),
                     SizedBox(
                       height: 15,
                     ),
-                    Sans("Do you want ", 15)
+                    Sans(
+                        "Multiplatform and native Android app development, designed to be flexible and adaptable to any specific need or requirement.",
+                        15)
                   ],
                 ),
               )

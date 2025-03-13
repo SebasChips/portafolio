@@ -42,7 +42,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
             SizedBox(
               height: 15,
             ),
-            SansBold("Sebastián Alberto Alarcón Béjar", 25),
+            SansBold("Sebastián Alarcón Béjar", 25),
             SizedBox(
               height: 15,
             ),
@@ -52,9 +52,6 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                 UrlLinks(
                     url: "https://www.instagram.com/sebas.chips/",
                     image: "assets/instagram.svg"),
-                UrlLinks(
-                    url: "https://www.twitter.com/tomcruise/",
-                    image: "assets/twitter.svg"),
                 UrlLinks(
                     url: "https://www.github.com/SebasChips/",
                     image: "assets/github.svg"),
@@ -109,23 +106,24 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                       height: 15,
                     ),
                     SansBold("Sebastián Alberto Alarcón Béjar", 25),
-                    Sans("Web and mobile developer", 15),
+                    Sans("Web and mobile developer", 18),
+                    SizedBox(height: 7),
                     Row(
                       children: [
                         Icon(Icons.email),
                         SizedBox(height: 20),
-                        Sans(" sebastianalarconbejar@gmail.com", 12)
+                        Sans(" sebastianalarconbejar@gmail.com", 15)
                       ],
                     ),
                     Row(children: [
                       Icon(Icons.call),
                       SizedBox(height: 20),
-                      Sans("+52 442 323 7924", 12)
+                      Sans("+52 442 323 7924", 15)
                     ]),
                     Row(children: [
                       Icon(Icons.location_city),
                       SizedBox(height: 20),
-                      Sans(" Querétaro, México", 12)
+                      Sans(" Querétaro, México", 15)
                     ]),
                   ],
                 ),
@@ -176,7 +174,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                     children: [
                       tealContainer(text: "NodeJs"),
                       tealContainer(text: "Firebase"),
-                      tealContainer(text: "JWT")
+                      tealContainer(text: "React")
                     ],
                   ),
                   SizedBox(

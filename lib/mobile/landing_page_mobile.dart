@@ -160,7 +160,7 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
                     children: [
                       tealContainer(text: "NodeJs"),
                       tealContainer(text: "Firebase"),
-                      tealContainer(text: "JWT")
+                      tealContainer(text: "React")
                     ],
                   ),
                   SizedBox(
