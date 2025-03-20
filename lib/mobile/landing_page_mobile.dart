@@ -15,71 +15,24 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
   @override
   Widget build(BuildContext context) {
     var widthDevice = MediaQuery.of(context).size.width;
-    final TextEditingController firstNameController = TextEditingController();
-    final TextEditingController lastNameController = TextEditingController();
-    final TextEditingController emailController = TextEditingController();
-    final TextEditingController phoneController = TextEditingController();
-    final TextEditingController messageController = TextEditingController();
-    final formkey = GlobalKey<FormState>();
-
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true,
         backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           elevation: 0.0,
-          iconTheme: IconThemeData(size: 35.5, color: Colors.black),
-        ),
-        endDrawer: Drawer(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              DrawerHeader(
-                  padding: EdgeInsets.only(bottom: 20.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(width: 2.0, color: Colors.black)),
-                    child: Image.asset('assets/yop-circle.png'),
-                  )),
-              TabsMobile(text: "Home", route: '/'),
-              SizedBox(height: 20.0),
-              TabsMobile(text: "About", route: '/about'),
-              SizedBox(height: 20.0),
-              TabsMobile(text: "Works", route: '/works'),
-              SizedBox(height: 20.0),
-              TabsMobile(text: "Contact", route: '/contact'),
-              SizedBox(height: 40.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  IconButton(
-                      onPressed: () async => await launchUrl(
-                          Uri.parse("https://www.instagram.com")),
-                      icon: SvgPicture.asset(
-                        "assets/instagram.svg",
-                        color: Colors.black,
-                        width: 35.0,
-                      )),
-                  IconButton(
-                      onPressed: () async =>
-                          await launchUrl(Uri.parse("https://www.github.com")),
-                      icon: SvgPicture.asset(
-                        "assets/github.svg",
-                        color: Colors.black,
-                        width: 35.0,
-                      )),
-                ],
-              )
-            ],
+          iconTheme: IconThemeData(
+            size: 35.5,
+            color: Colors.deepPurple,
           ),
         ),
+        endDrawer: MobileDrawer(),
         body: ListView(
           children: [
             CircleAvatar(
               radius: 113.0,
-              backgroundColor: Colors.deepPurple,
+              backgroundColor: Color.fromRGBO(236, 231, 245, 1),
               child: CircleAvatar(
                 radius: 110.0,
                 backgroundColor: Colors.white,
@@ -153,7 +106,7 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
                       "I am a Software Engineer with a strong passion for web and mobile application development. Committed to building optimized, secure, and scalable solutions while adhering to best coding practices.",
                       15.0),
                   SizedBox(height: 10.0),
-                  SansBold("Backend", 15),
+                  SansBold("Backend", 15.0),
                   Wrap(
                     spacing: 7.0,
                     runSpacing: 7.0,
@@ -211,84 +164,7 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
             SizedBox(
               height: 60.0,
             ),
-            Wrap(
-              runSpacing: 20.0,
-              spacing: 20.0,
-              alignment: WrapAlignment.center,
-              children: [
-                SansBold("Contact me", 35.0),
-                TextForm(
-                    "First name",
-                    widthDevice / 1.4,
-                    "Please type your first name",
-                    1,
-                    firstNameController, (text) {
-                  if (text.toString().isEmpty) {
-                    return "Last name is required";
-                  }
-                }),
-                TextForm(
-                    "Last name",
-                    widthDevice / 1.4,
-                    "Please type your last name",
-                    1,
-                    lastNameController, (text) {
-                  if (text.toString().isEmpty) {
-                    return "Last name is required";
-                  }
-                }),
-                TextForm(
-                    "Email",
-                    widthDevice / 1.4,
-                    "Please type your email address",
-                    1,
-                    emailController, (text) {
-                  if (text.toString().isEmpty) {
-                    return "Last name is required";
-                  }
-                }),
-                TextForm(
-                    "Phone number",
-                    widthDevice / 1.4,
-                    "Please type your phone number",
-                    2,
-                    phoneController, (text) {
-                  if (text.toString().isEmpty) {
-                    return "Last name is required";
-                  }
-                }),
-                TextForm("Message", widthDevice / 1.4, "Message", 10,
-                    messageController, (text) {
-                  if (text.toString().isEmpty) {
-                    return "Last name is required";
-                  }
-                }),
-                MaterialButton(
-                  elevation: 20,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  height: 60,
-                  minWidth: 200,
-                  color: Colors.deepPurple[100],
-                  child: SansBold("Submit", 20),
-                  onPressed: () async {
-                    final addData = AddDataFirestore();
-                    if (formkey.currentState!.validate()) {
-                      await addData.addResponse(
-                        firstNameController.text,
-                        lastNameController.text,
-                        emailController.text,
-                        phoneController.text,
-                        messageController.text,
-                      );
-                      formkey.currentState!.reset();
-                      DialogError(context);
-                    }
-                  },
-                ),
-              ],
-            ),
+            ContactFormMobile(),
             SizedBox(
               height: 20.0,
             )

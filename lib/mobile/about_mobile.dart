@@ -20,59 +20,16 @@ class _AboutMobileState extends State<AboutMobile> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        iconTheme: IconThemeData(size: 35.5, color: Colors.black),
+        iconTheme: IconThemeData(size: 35.5, color: Colors.deepPurple),
       ),
-      endDrawer: Drawer(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            DrawerHeader(
-                padding: EdgeInsets.only(bottom: 20.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(width: 2.0, color: Colors.black)),
-                  child: Image.asset('assets/yop-circle.png'),
-                )),
-            TabsMobile(text: "Home", route: '/'),
-            SizedBox(height: 20.0),
-            TabsMobile(text: "About", route: '/about'),
-            SizedBox(height: 20.0),
-            TabsMobile(text: "Works", route: '/works'),
-            SizedBox(height: 20.0),
-            TabsMobile(text: "Contact", route: '/contact'),
-            SizedBox(height: 40.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                IconButton(
-                    onPressed: () async =>
-                        await launchUrl(Uri.parse("https://www.instagram.com")),
-                    icon: SvgPicture.asset(
-                      "assets/instagram.svg",
-                      color: Colors.black,
-                      width: 35.0,
-                    )),
-                IconButton(
-                    onPressed: () async =>
-                        await launchUrl(Uri.parse("https://www.github.com")),
-                    icon: SvgPicture.asset(
-                      "assets/github.svg",
-                      color: Colors.black,
-                      width: 35.0,
-                    )),
-              ],
-            )
-          ],
-        ),
-      ),
+      endDrawer: MobileDrawer(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: ListView(
           children: [
             CircleAvatar(
               radius: 117.0,
-              backgroundColor: Colors.deepPurple[50],
+              backgroundColor: Color.fromRGBO(236, 231, 245, 1),
               child: CircleAvatar(
                 radius: 114.0,
                 backgroundColor: Colors.white,
@@ -80,7 +37,7 @@ class _AboutMobileState extends State<AboutMobile> {
                   radius: 110.0,
                   backgroundColor: Colors.white,
                   child: Image.asset(
-                    "assets/yop-circle.png",
+                    'assets/yop-circle.png',
                     filterQuality: FilterQuality.high,
                   ),
                 ),
@@ -100,10 +57,7 @@ class _AboutMobileState extends State<AboutMobile> {
                     height: 5,
                   ),
                   Sans(
-                      "I'm a web & mobile developer searching for new projects",
-                      15),
-                  Sans(
-                      "and challenges to achieve, implementing methologies like",
+                      "I'm a web & mobile developer searching for new projects and challenges to achieve, implementing methologies as:",
                       15),
                   Sans("Design thinking, DevOps, Scrum and IaC.", 15),
                   SizedBox(

@@ -15,60 +15,13 @@ class _AboutWebState extends State<AboutWeb> {
     var widthDevice = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      drawer: Drawer(
-        backgroundColor: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 72,
-              backgroundColor: Colors.white,
-              child: CircleAvatar(
-                radius: 69,
-                backgroundColor: Colors.white,
-                backgroundImage: AssetImage("assets/yop.png"),
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            SansBold("Sebastián Alarcón Béjar", 25),
-            SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                UrlLinks(
-                    url: "https://www.instagram.com/sebas.chips/",
-                    image: "assets/instagram.svg"),
-                UrlLinks(
-                    url: "https://www.github.com/SebasChips/",
-                    image: "assets/github.svg"),
-              ],
-            )
-          ],
-        ),
-      ),
+      drawer: WebDrawer(),
       backgroundColor: Colors.white,
       appBar: AppBar(
         iconTheme: IconThemeData(size: 25, color: Colors.black),
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Row(
-          children: [
-            Spacer(
-              flex: 4,
-            ),
-            TabsWeb(title: "Home", route: "/"),
-            Spacer(),
-            TabsWeb(title: "Works", route: "/works"),
-            Spacer(),
-            TabsWeb(title: "About", route: "/about"),
-            Spacer(),
-            TabsWeb(title: "Contact", route: "/contact"),
-          ],
-        ),
+        title: TabsWebList(),
       ),
       body: ListView(
         children: [

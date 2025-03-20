@@ -30,11 +30,11 @@ class _TabsMobileState extends State<TabsMobile> {
         elevation: 20,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         height: 20,
-        color: Color.fromRGBO(87, 61, 145, 1),
+        color: Color.fromRGBO(236, 231, 245, 1),
         minWidth: 200,
         child: Text(
           widget.text,
-          style: GoogleFonts.openSans(fontSize: 20, color: Colors.white),
+          style: GoogleFonts.openSans(fontSize: 20, color: Colors.black),
         ),
         onPressed: () {
           Navigator.of(context).pushNamed(widget.route);
@@ -294,27 +294,362 @@ class AddDataFirestore {
   var logger = Logger();
   CollectionReference response =
       FirebaseFirestore.instance.collection(('messages'));
-  Future<void> addResponse(final firstName, final lastName, final email,
+  Future addResponse(final firstName, final lastName, final email,
       final phoneNumber, final message) async {
-    return response
-        .add({
-          'first name': firstName,
-          'last name': lastName,
-          'email': email,
-          'phone': phoneNumber,
-          'message': message,
-        })
-        .then((value) => logger.d("Success"))
-        .catchError((error) => logger.d(error));
+    return response.add({
+      'first name': firstName,
+      'last name': lastName,
+      'email': email,
+      'phone': phoneNumber,
+      'message': message,
+    }).then((value) {
+      logger.d("Success");
+      return true;
+    }).catchError((error) {
+      logger.d(error);
+      return false;
+    });
   }
 }
 
-Future DialogError(BuildContext context) {
+Future DialogError(BuildContext context, String message) {
   return showDialog(
       context: context,
       builder: (BuildContext context) => AlertDialog(
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0)),
-            title: SansBold("Message submited", 20.0),
+            title: SansBold(message, 20.0),
           ));
+}
+
+class TabsWebList extends StatefulWidget {
+  const TabsWebList({super.key});
+
+  @override
+  State<TabsWebList> createState() => _TabsWebListState();
+}
+
+class _TabsWebListState extends State<TabsWebList> {
+  @override
+  Widget build(BuildContext context) {
+    return const Row(
+      children: [
+        Spacer(
+          flex: 3,
+        ),
+        TabsWeb(
+          title: "Web",
+          route: '/',
+        ),
+        Spacer(),
+        TabsWeb(
+          title: "Works",
+          route: '/works',
+        ),
+        Spacer(),
+        TabsWeb(
+          title: "About",
+          route: '/about',
+        ),
+        Spacer(),
+        TabsWeb(
+          title: "Contact",
+          route: '/contact',
+        )
+      ],
+    );
+  }
+}
+
+class WebDrawer extends StatelessWidget {
+  const WebDrawer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Drawer(
+      backgroundColor: Colors.white,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            radius: 72,
+            backgroundColor: Color.fromRGBO(236, 231, 245, 1),
+            child: CircleAvatar(
+              radius: 69,
+              backgroundColor: Colors.white,
+              backgroundImage: AssetImage("assets/computer.jpg"),
+            ),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          SansBold("Sebastián Alarcón Béjar", 25),
+          SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              UrlLinks(
+                  url: "https://www.instagram.com/sebas.chips/",
+                  image: "assets/instagram.svg"),
+              UrlLinks(
+                  url: "https://www.github.com/SebasChips/",
+                  image: "assets/github.svg"),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class MobileDrawer extends StatelessWidget {
+  const MobileDrawer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      backgroundColor: Colors.white,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          DrawerHeader(
+              padding: EdgeInsets.only(bottom: 20.0),
+              child: Container(
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      width: 2.0,
+                      color: Color.fromRGBO(236, 231, 245, 1),
+                    )),
+                child: Image.asset('assets/computer-circle.png'),
+              )),
+          TabsMobile(text: "Home", route: '/'),
+          SizedBox(height: 20.0),
+          TabsMobile(text: "About", route: '/about'),
+          SizedBox(height: 20.0),
+          TabsMobile(text: "Works", route: '/works'),
+          SizedBox(height: 20.0),
+          TabsMobile(text: "Contact", route: '/contact'),
+          SizedBox(height: 40.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              UrlLinks(
+                  url: "https://www.instagram.com/sebas.chips/",
+                  image: "assets/instagram.svg"),
+              UrlLinks(
+                  url: "https://www.github.com/SebasChips/",
+                  image: "assets/github.svg"),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
+
+//variables
+final TextEditingController firstNameController = TextEditingController();
+final TextEditingController lastNameController = TextEditingController();
+final TextEditingController emailController = TextEditingController();
+final TextEditingController phoneController = TextEditingController();
+final TextEditingController messageController = TextEditingController();
+
+//classes
+class ContactFormWeb extends StatefulWidget {
+  const ContactFormWeb({super.key});
+
+  @override
+  State<ContactFormWeb> createState() => _ContactFormWebState();
+}
+
+class _ContactFormWebState extends State<ContactFormWeb> {
+  final formkey = GlobalKey<FormState>();
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formkey,
+      child: Column(
+        children: [
+          SizedBox(
+            height: 30,
+          ),
+          SansBold("Contact me", 40),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              TextForm("First name", 350, "Please type first name", 1,
+                  firstNameController, (text) {
+                if (text.toString().isEmpty) {
+                  return "Last name is required";
+                }
+              }),
+              SizedBox(
+                height: 15,
+              ),
+              TextForm("Email", 350, "Please type email addresss", 1,
+                  emailController, (text) {
+                if (text.toString().isEmpty) {
+                  return "Last name is required";
+                }
+              })
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              TextForm("Last name", 350, "Please type last name", 1,
+                  lastNameController, (text) {
+                if (text.toString().isEmpty) {
+                  return "Last name is required";
+                }
+              }),
+              SizedBox(
+                height: 20,
+              ),
+              TextForm("Phone number", 350, "Please type your phone number", 1,
+                  phoneController, (text) {
+                if (text.toString().isEmpty) {
+                  return "Last name is required";
+                }
+              })
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          TextForm(
+              "Message", 350, "Please type your message", 10, messageController,
+              (text) {
+            if (text.toString().isEmpty) {
+              return "Last name is required";
+            }
+          }),
+          SizedBox(
+            height: 20,
+          ),
+          MaterialButton(
+            elevation: 20,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            height: 60,
+            minWidth: 200,
+            color: Colors.deepPurple[50],
+            child: SansBold("Submit", 20),
+            onPressed: () async {
+              final addData = new AddDataFirestore();
+              if (formkey.currentState!.validate()) {
+                if (await addData.addResponse(
+                    firstNameController.text,
+                    lastNameController.text,
+                    emailController.text,
+                    phoneController.text,
+                    messageController.text)) {
+                  formkey.currentState!.reset();
+                  DialogError(context, "Message sent succesfully!");
+                } else {
+                  DialogError(context, "Message fail to sent");
+                }
+              }
+            },
+          ),
+          SizedBox(
+            height: 10,
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class ContactFormMobile extends StatefulWidget {
+  const ContactFormMobile({super.key});
+
+  @override
+  State<ContactFormMobile> createState() => _ContactFormMobileState();
+}
+
+class _ContactFormMobileState extends State<ContactFormMobile> {
+  final formkey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    var widthDevice = MediaQuery.of(context).size.width;
+
+    return Form(
+      key: formkey,
+      child: Wrap(
+        runSpacing: 20.0,
+        spacing: 20.0,
+        alignment: WrapAlignment.center,
+        children: [
+          SansBold("Contact me", 35.0),
+          TextForm("First name", widthDevice / 1.4,
+              "Please type your first name", 1, firstNameController, (text) {
+            if (text.toString().isEmpty) {
+              return "Last name is required";
+            }
+          }),
+          TextForm("Last name", widthDevice / 1.4, "Please type your last name",
+              1, lastNameController, (text) {
+            if (text.toString().isEmpty) {
+              return "Last name is required";
+            }
+          }),
+          TextForm("Email", widthDevice / 1.4, "Please type your email address",
+              1, emailController, (text) {
+            if (text.toString().isEmpty) {
+              return "Last name is required";
+            }
+          }),
+          TextForm("Phone number", widthDevice / 1.4,
+              "Please type your phone number", 2, phoneController, (text) {
+            if (text.toString().isEmpty) {
+              return "Last name is required";
+            }
+          }),
+          TextForm(
+              "Message", widthDevice / 1.4, "Message", 10, messageController,
+              (text) {
+            if (text.toString().isEmpty) {
+              return "Last name is required";
+            }
+          }),
+          MaterialButton(
+            elevation: 20.0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            height: 60.0,
+            minWidth: 200.0,
+            color: Colors.deepPurple[50],
+            child: SansBold("Submit", 20.0),
+            onPressed: () async {
+              final addData = new AddDataFirestore();
+              if (formkey.currentState!.validate()) {
+                if (await addData.addResponse(
+                    firstNameController.text,
+                    lastNameController.text,
+                    emailController.text,
+                    phoneController.text,
+                    messageController.text)) {
+                  formkey.currentState!.reset();
+                  DialogError(context, "Message sent succesfully!");
+                } else {
+                  DialogError(context, "Message fail to sent");
+                }
+              }
+            },
+          ),
+        ],
+      ),
+    );
+  }
 }

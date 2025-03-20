@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portafolio_project/firebase_options.dart';
 import 'package:portafolio_project/routes.dart';
 import 'package:url_strategy/url_strategy.dart';
@@ -19,8 +20,8 @@ void main() async {
             appId: "1:691187048995:web:7c0ea5078461ec509d8796",
             measurementId: "G-8T8GJYCRP6"));
   } else
-    await Firebase.initializeApp(
-        options: DefaultFirebaseOptions.currentPlatform);
+    GoogleFonts.config.allowRuntimeFetching = false;
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   setPathUrlStrategy();
   runApp(MyApp());

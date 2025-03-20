@@ -17,61 +17,7 @@ class _WorksWebState extends State<WorksWeb> {
     var widthDevice = MediaQuery.of(context).size.width;
 
     return Scaffold(
-        drawer: Drawer(
-          backgroundColor: Colors.white,
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            CircleAvatar(
-              radius: 72,
-              backgroundColor: Colors.tealAccent,
-              child: CircleAvatar(
-                radius: 70,
-                backgroundColor: Colors.white,
-                backgroundImage: AssetImage("assets/yop.png"),
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            SansBold("Sebastián Alberto Alarcón Béjar", 30),
-            SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                IconButton(
-                    onPressed: () async {
-                      await launchUrl(
-                          Uri.parse("https://www.instagram.com/sebas.chips/"));
-                    },
-                    icon: SvgPicture.asset(
-                      "assets/instagram.svg",
-                      width: 35,
-                      color: Colors.black,
-                    )),
-                IconButton(
-                    onPressed: () async {
-                      await launchUrl(
-                          Uri.parse("https://www.instagram.com/sebas.chips/"));
-                    },
-                    icon: SvgPicture.asset(
-                      "assets/github.svg",
-                      width: 35,
-                      color: Colors.black,
-                    )),
-                IconButton(
-                    onPressed: () async {
-                      await launchUrl(Uri.parse("https://www.github.com"));
-                    },
-                    icon: SvgPicture.asset(
-                      "assets/instagram.svg",
-                      width: 35,
-                      color: Colors.black,
-                    )),
-              ],
-            ),
-          ]),
-        ),
+        drawer: WebDrawer(),
         backgroundColor: Colors.white,
         body: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool ineerBoxIsScrolled) {
@@ -80,32 +26,7 @@ class _WorksWebState extends State<WorksWeb> {
                 backgroundColor: Colors.white,
                 iconTheme: IconThemeData(size: 25, color: Colors.black),
                 flexibleSpace: FlexibleSpaceBar(),
-                title: Row(
-                  children: [
-                    Spacer(
-                      flex: 3,
-                    ),
-                    TabsWeb(
-                      title: "Web",
-                      route: '/',
-                    ),
-                    Spacer(),
-                    TabsWeb(
-                      title: "Works",
-                      route: '/works',
-                    ),
-                    Spacer(),
-                    TabsWeb(
-                      title: "About",
-                      route: '/about',
-                    ),
-                    Spacer(),
-                    TabsWeb(
-                      title: "Works",
-                      route: '/works',
-                    )
-                  ],
-                ),
+                title: TabsWebList(),
               )
             ];
           },
