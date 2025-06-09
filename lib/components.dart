@@ -338,7 +338,7 @@ class _TabsWebListState extends State<TabsWebList> {
           flex: 3,
         ),
         TabsWeb(
-          title: "Web",
+          title: "Home",
           route: '/',
         ),
         Spacer(),
@@ -377,13 +377,12 @@ class WebDrawer extends StatelessWidget {
             child: CircleAvatar(
               radius: 69,
               backgroundColor: Colors.white,
-              backgroundImage: AssetImage("assets/computer.jpg"),
+              backgroundImage: AssetImage("assets/yop-circle.png"),
             ),
           ),
           SizedBox(
             height: 15,
           ),
-          SansBold("Sebastián Alarcón Béjar", 25),
           SizedBox(
             height: 15,
           ),
@@ -525,7 +524,7 @@ class _ContactFormWebState extends State<ContactFormWeb> {
             height: 20,
           ),
           TextForm(
-              "Message", 350, "Please type your message", 10, messageController,
+              "Message", 800, "Please type your message", 10, messageController,
               (text) {
             if (text.toString().isEmpty) {
               return "Last name is required";

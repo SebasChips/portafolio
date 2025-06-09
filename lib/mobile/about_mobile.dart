@@ -59,7 +59,7 @@ class _AboutMobileState extends State<AboutMobile> {
                   Sans(
                       "I'm a web & mobile developer searching for new projects and challenges to achieve, implementing methologies as:",
                       15),
-                  Sans("Design thinking, DevOps, Scrum and IaC.", 15),
+                  Sans("Design thinking, DevOps and IaC.", 15),
                   SizedBox(
                     height: 10,
                   ),

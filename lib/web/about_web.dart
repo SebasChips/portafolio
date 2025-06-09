@@ -50,7 +50,7 @@ class _AboutWebState extends State<AboutWeb> {
                     Sans(
                         "and challenges to achieve, implementing methologies like",
                         15),
-                    Sans("Design thinking, DevOps, Scrum and IaC.", 15),
+                    Sans("Design thinking, DevOps and IaC.", 15),
                     SizedBox(
                       height: 10,
                     ),
