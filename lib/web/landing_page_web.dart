@@ -51,7 +51,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                       height: 15,
                     ),
                     SansBold("Sebastián Alberto Alarcón Béjar", 25),
-                    Sans("Web and mobile developer", 18),
+                    Sans("Fullstack web and mobile developer", 18),
                     SizedBox(height: 7),
                     Row(
                       children: [
@@ -105,35 +105,23 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                   ),
                   SizedBox(
                     width: 400,
-                    child: Sans(
-                        "I am a Software Engineer with a strong passion for web and mobile application development. Committed to building optimized, secure, and scalable solutions while adhering to best coding practices.",
-                        15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start, // Opcional, alinea el texto a la izquierda
+                      children: [
+                        Sans(
+                          "I’m a Software Engineer focused on web and mobile development. I have experience building web platforms for schools such as UAQ and John F. Kennedy. I've developed personal mobile projects lds of entertainment and education.",
+                          18,
+                        ),
+                        SizedBox(height: 12), // Espacio entre párrafos
+                        Sans(
+                          "I’m seeking professional opportunities where I can continue expanding my knowledge, specialize in new technologies, and work on projects that challenge me.",
+                          18,
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 20,
-                  ),
-                  SansBold("Backend", 15),
-                  Wrap(
-                    spacing: 7.0,
-                    runSpacing: 7.0,
-                    children: [
-                      tealContainer(text: "NodeJs"),
-                      tealContainer(text: "Firebase"),
-                      tealContainer(text: "React")
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  SansBold("Frontend", 15),
-                  Wrap(
-                    spacing: 7.0,
-                    runSpacing: 7.0,
-                    children: [
-                      tealContainer(text: "Flutter"),
-                      tealContainer(text: "Bootstrap"),
-                      tealContainer(text: "CSS")
-                    ],
                   )
                 ],
               ),

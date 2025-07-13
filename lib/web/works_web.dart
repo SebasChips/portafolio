@@ -21,6 +21,22 @@ class _WorksWebState extends State<WorksWeb> {
       'assets/movilidad_academica/ma3.png',
     ];
 
+    final List<String> bit_by_bit = [
+      'assets/BitByBit/bitbybit3.png',
+      'assets/BitByBit/bitbybit4.png',
+      'assets/BitByBit/bitbybit5.png',
+      'assets/BitByBit/bitbybit6.png',
+      'assets/BitByBit/bitbybit7.png',
+      'assets/BitByBit/bitbybit2.png'
+    ];
+
+    final List<String> JFK = [
+      'assets/JFK/JFK1.png',
+      'assets/JFK/JFK2.png',
+      'assets/JFK/JFK3.png',
+      'assets/JFK/JFK4.png'
+    ];
+
     return Scaffold(
         drawer: WebDrawer(),
         backgroundColor: Colors.white,
@@ -43,6 +59,217 @@ class _WorksWebState extends State<WorksWeb> {
                   SansBold("Works", 40),
                 ],
               ),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    width: widthDevice / 2.5,
+                    child: CarouselSlider(
+                      options: CarouselOptions(
+                        height: 400.0,
+                        enlargeCenterPage: false,
+                        viewportFraction: 1.0,
+                        aspectRatio: 16 / 9,
+                        initialPage: 0,
+                      ),
+                      items: movilidad_academica.map((url) {
+                        return ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: Image.asset(
+                            url,
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  SizedBox(
+                    width: widthDevice / 3,
+                    child: Column(
+                      children: [
+                        SansBold("Troyano viajero", 30.0),
+                        SizedBox(height: 15),
+                        Sans(
+                            "Web system developed for my university to automate administrative processes related to academic mobility tracking and approval. Built using JavaScript, with Node.js handling the server-side logic.",
+                            15),
+                        SizedBox(height: 30),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/icons/js.png',
+                              height: 50,
+                              width: 50,
+                            ),
+                            SizedBox(width: 10),
+                            Image.asset(
+                              'assets/icons/nodejs.png',
+                              height: 50,
+                              width: 50,
+                            ),
+                            SizedBox(width: 10),
+                            Image.asset(
+                              'assets/icons/mysql.png',
+                              height: 50,
+                              width: 50,
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    width: widthDevice / 3,
+                    child: Column(
+                      children: [
+                        SansBold("JFK extracurricular activities", 30.0),
+                        SizedBox(height: 15),
+                        Sans("Web system developed for JFK School as an enrollment platform for sports and extended learning activities. Built with PHP and Apache as the server stack, the system is designed for parents to simplify the enrollment process.", 15),
+                        SizedBox(height: 30),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/icons/php.png',
+                              height: 50,
+                              width: 50,
+                            ),
+                            SizedBox(width: 10),
+                            Image.asset(
+                              'assets/icons/apache.png',
+                              height: 50,
+                              width: 50,
+                            ),
+                            SizedBox(width: 10),
+                            Image.asset(
+                              'assets/icons/mysql.png',
+                              height: 50,
+                              width: 50,
+                            ),
+                            SizedBox(width: 10),
+                            Image.asset(
+                              'assets/icons/docker.png',
+                              height: 50,
+                              width: 50,
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: widthDevice / 2.5,
+                    child: CarouselSlider(
+                      options: CarouselOptions(
+                        height: 400.0,
+                        enlargeCenterPage: true,
+                        viewportFraction: 1,
+                        aspectRatio: 16 / 9,
+                        initialPage: 0,
+                      ),
+                      items: JFK.map((url) {
+                        return Container(
+                          margin: EdgeInsets.symmetric(horizontal: 5.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: Image.asset(
+                              url,
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                              height: double.infinity,
+                            ),
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  /*SizedBox(
+                    width: widthDevice / 3,
+                    child: CarouselSlider(
+                      options: CarouselOptions(
+                        height: 300.0,
+                        enlargeCenterPage: true,
+                        viewportFraction: 1.0,
+                        aspectRatio: 16 / 9,
+                        initialPage: 0,
+                      ),
+                      items: movilidad_academica.map((url) {
+                        return ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: Image.asset(
+                            url,
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ),*/
+                  SizedBox(
+                    width: widthDevice / 3,
+                    child: Column(
+                      children: [
+                        SansBold("JFK administrative part", 30.0),
+                        SizedBox(height: 15),
+                        Sans(
+                            "It's the administrative part of the extracurricular activities in where they manage the activities, capacities and type of groups available fo the parents. Also they have the same capabilities as the other system but wit a superadmin privalage.",
+                            15),
+                        SizedBox(height: 30),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/icons/php.png',
+                              height: 50,
+                              width: 50,
+                            ),
+                            SizedBox(width: 10),
+                            Image.asset(
+                              'assets/icons/apache.png',
+                              height: 50,
+                              width: 50,
+                            ),
+                            SizedBox(width: 10),
+                            Image.asset(
+                              'assets/icons/mysql.png',
+                              height: 50,
+                              width: 50,
+                            ),
+                            SizedBox(width: 10),
+                            Image.asset(
+                              'assets/icons/docker.png',
+                              height: 50,
+                              width: 50,
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+
+              Column(
+                children: [
+                  SizedBox(height: 40),
+                  SansBold("Projects", 40),
+                ],),
+              SizedBox(height: 20),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -52,7 +279,9 @@ class _WorksWebState extends State<WorksWeb> {
                       children: [
                         SansBold("Portafolio", 30.0),
                         SizedBox(height: 15),
-                        Sans("The same one you are seeing right now", 15),
+                        Sans(
+                            "A web resume showcasing my skills, projects and experiences of my professional path. Responsive for mobil and desktop devices, with the implementation of flutter. This because wanted to deepen my understanding of multiplatform development.",
+                            15),
                         SizedBox(height: 30),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -75,27 +304,31 @@ class _WorksWebState extends State<WorksWeb> {
                               width: 35,
                             ),
                             SizedBox(width: 10),
+                            SizedBox(height: 5),
                           ],
-                        )
+                        ),
+                        SansBold("Repository", 16),
+                        SizedBox(height: 2),
+                        UrlLinks(
+                            url: "https://github.com/SebasChips/portafolio",
+                            image: "assets/github.svg"),
                       ],
                     ),
                   ),
                   SizedBox(
-                    width: widthDevice /3,
+                    width: widthDevice / 2.5,
                     child: CarouselSlider(
                       options: CarouselOptions(
-                        height: 300.0,
-                        autoPlay: true,
+                        height: 400.0,
                         enlargeCenterPage: true,
                         viewportFraction: 1.0,
                         aspectRatio: 16 / 9,
                         initialPage: 0,
-
                       ),
                       items: movilidad_academica.map((url) {
                         return ClipRRect(
                           borderRadius: BorderRadius.circular(15),
-                          child: Image.network(
+                          child: Image.asset(
                             url,
                             fit: BoxFit.cover,
                             width: double.infinity,
@@ -106,24 +339,24 @@ class _WorksWebState extends State<WorksWeb> {
                   ),
                 ],
               ),
+              SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SizedBox(
-                    width: widthDevice /3,
+                    width: widthDevice / 2.5,
                     child: CarouselSlider(
                       options: CarouselOptions(
-                        height: 300.0,
-                        autoPlay: true,
+                        height: 400.0,
                         enlargeCenterPage: true,
                         viewportFraction: 1.0,
-                        aspectRatio: 16 / 9,
+                        aspectRatio: 21 / 12,
                         initialPage: 0,
                       ),
-                      items: movilidad_academica.map((url) {
+                      items: bit_by_bit.map((url) {
                         return ClipRRect(
                           borderRadius: BorderRadius.circular(15),
-                          child: Image.network(
+                          child: Image.asset(
                             url,
                             fit: BoxFit.cover,
                             width: double.infinity,
@@ -138,7 +371,9 @@ class _WorksWebState extends State<WorksWeb> {
                       children: [
                         SansBold("BitByBit", 30.0),
                         SizedBox(height: 15),
-                        Sans("Multi-platform system designed to promote early interest in school and technology through educational games that teach basic programming concepts, helping children develop a passion for coding and encouraging them to stay in school.", 15),
+                        Sans(
+                            "A react native Multi-platform system (Android and web) designed to promote early interest in school and technology through educational games that teach basic programming concepts, helping children develop a passion for coding and encouraging them to stay in school.",
+                            15),
                         SizedBox(height: 30),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -155,192 +390,36 @@ class _WorksWebState extends State<WorksWeb> {
                               width: 50,
                             ),
                             SizedBox(width: 10),
-
-                            Image.asset(
-                              'assets/icons/firebase.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                            SizedBox(width: 10),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    width: widthDevice / 3,
-                    child: Column(
-                      children: [
-                        SansBold("¿Qué Plan?", 30.0),
-                        SizedBox(height: 15),
-                        Sans("Android app developed to help young people discover and share local entertainment options through a social platform,", 15),
-                        SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/icons/kotlin.png',
-                              height: 35,
-                              width: 35,
-                            ),
-                            SizedBox(width: 10),
                             Image.asset(
                               'assets/icons/firebase.png',
                               height: 50,
                               width: 50,
                             ),
                           ],
-                        )
+                        ),
+                        SizedBox(height: 5),
+                        SansBold("Repository & APK", 16),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 2),
+                              UrlLinks(
+                                  url:
+                                      "https://github.com/SebasChips/BitbyBit.git",
+                                  image: "assets/github.svg"),
+                              UrlLinks(
+                                  url:
+                                      "https://github.com/SebasChips/BitbyBit.git",
+                                  image: "assets/apk.svg"),
+                              SizedBox(height: 10),
+                            ])
                       ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: widthDevice /3,
-                    child: CarouselSlider(
-                      options: CarouselOptions(
-                        height: 300.0,
-                        autoPlay: true,
-                        enlargeCenterPage: true,
-                        viewportFraction: 1.0,
-                        aspectRatio: 16 / 9,
-                        initialPage: 0,
-                      ),
-                      items: movilidad_academica.map((url) {
-                        return ClipRRect(
-                          borderRadius: BorderRadius.circular(15),
-                          child: Image.network(
-                            url,
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                          ),
-                        );
-                      }).toList(),
                     ),
                   ),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    width: widthDevice /3,
-                    child: CarouselSlider(
-                      options: CarouselOptions(
-                        height: 300.0,
-                        autoPlay: true,
-                        enlargeCenterPage: true,
-                        viewportFraction: 1.0,
-                        aspectRatio: 16 / 9,
-                        initialPage: 0,
-                      ),
-                      items: movilidad_academica.map((url) {
-                        return ClipRRect(
-                          borderRadius: BorderRadius.circular(15),
-                          child: Image.network(
-                            url,
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                  SizedBox(
-                    width: widthDevice / 3,
-                    child: Column(
-                      children: [
-                        SansBold("Troyano viajero", 30.0),
-                        SizedBox(height: 15),
-                        Sans("Web system to automate academic mobility tracking and approval processes.", 15),
-                        SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/icons/js.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                            SizedBox(width: 10),
+              SizedBox(height: 20),
 
-                            Image.asset(
-                              'assets/icons/nodejs.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                            SizedBox(width: 10),
-                            Image.asset(
-                              'assets/icons/mysql.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                            ],
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    width: widthDevice / 3,
-                    child: Column(
-                      children: [
-                        SansBold("JFK extracurricular activities", 30.0),
-                        SizedBox(height: 15),
-                        Sans("The same one you are seeing right now", 15),
-                        SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/icons/php.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                            SizedBox(width: 10),
-                            Image.asset(
-                              'assets/icons/mysql.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: widthDevice /3,
-                    child: CarouselSlider(
-                      options: CarouselOptions(
-                        height: 300.0,
-                        autoPlay: true,
-                        enlargeCenterPage: true,
-                        viewportFraction: 1.0,
-                        aspectRatio: 16 / 9,
-                        initialPage: 0,
-                      ),
-                      items: movilidad_academica.map((url) {
-                        return ClipRRect(
-                          borderRadius: BorderRadius.circular(15),
-                          child: Image.network(
-                            url,
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                ],
-              ),
 
             ],
           ),
