@@ -37,6 +37,13 @@ class _WorksWebState extends State<WorksWeb> {
       'assets/JFK/JFK4.png'
     ];
 
+    final List<String> Inventory = [
+      'assets/inventory/inventory1.png',
+      'assets/inventory/inventory2.png',
+      'assets/inventory/inventory3.png',
+      'assets/inventory/inventory4.png'
+    ];
+
     return Scaffold(
         drawer: WebDrawer(),
         backgroundColor: Colors.white,
@@ -197,6 +204,70 @@ class _WorksWebState extends State<WorksWeb> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  SizedBox(
+                    width: widthDevice / 2.5,
+                    child: CarouselSlider(
+                      options: CarouselOptions(
+                        height: 400.0,
+                        enlargeCenterPage: true,
+                        viewportFraction: 1.0,
+                        aspectRatio: 16 / 9,
+                        initialPage: 0,
+                      ),
+                      items: Inventory.map((url) {
+                        return ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: Image.asset(
+                            url,
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  SizedBox(
+                    width: widthDevice / 3,
+                    child: Column(
+                      children: [
+                        SansBold("Inventory system", 30.0),
+                        SizedBox(height: 15),
+                        Sans("Management system for all electronic devices in the school, enabling better control, logistics, and change tracking when needed.",
+                            15),
+                        SizedBox(height: 30),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/icons/php.png',
+                              height: 35,
+                              width: 35,
+                            ),
+                            SizedBox(width: 10),
+                            Image.asset(
+                              'assets/icons/apache.png',
+                              height: 30,
+                              width: 30,
+                            ),
+                            SizedBox(width: 10),
+                            Image.asset(
+                              'assets/icons/docker.png',
+                              height: 35,
+                              width: 35,
+                            ),
+                            SizedBox(width: 10),
+                            SizedBox(height: 5),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
                   /*SizedBox(
                     width: widthDevice / 3,
                     child: CarouselSlider(
@@ -265,7 +336,7 @@ class _WorksWebState extends State<WorksWeb> {
 
               Column(
                 children: [
-                  SizedBox(height: 40),
+                  SizedBox(height: 100),
                   SansBold("Projects", 40),
                 ],),
               SizedBox(height: 20),
