@@ -37,392 +37,262 @@ class _WorksWebState extends State<WorksWeb> {
       'assets/JFK/JFK4.png'
     ];
 
+    final List<String> portafolio = [
+      'assets/portafolio/portafolio1.png',
+      'assets/portafolio/portafolio2.png',
+      'assets/portafolio/portafolio3.png',
+    ];
+
     return Scaffold(
-        drawer: WebDrawer(),
-        backgroundColor: Colors.white,
-        body: NestedScrollView(
-          headerSliverBuilder: (BuildContext context, bool ineerBoxIsScrolled) {
-            return <Widget>[
-              SliverAppBar(
-                backgroundColor: Colors.white,
-                iconTheme: IconThemeData(size: 25, color: Colors.black),
-                flexibleSpace: FlexibleSpaceBar(),
-                title: TabsWebList(),
-              )
-            ];
-          },
-          body: ListView(
-            children: [
-              Column(
-                children: [
-                  SizedBox(height: 40),
-                  SansBold("Works", 40),
-                ],
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    width: widthDevice / 2.5,
-                    child: CarouselSlider(
-                      options: CarouselOptions(
-                        height: 400.0,
-                        enlargeCenterPage: false,
-                        viewportFraction: 1.0,
-                        aspectRatio: 16 / 9,
-                        initialPage: 0,
-                      ),
-                      items: movilidad_academica.map((url) {
-                        return ClipRRect(
-                          borderRadius: BorderRadius.circular(15),
-                          child: Image.asset(
-                            url,
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                  SizedBox(
-                    width: widthDevice / 3,
-                    child: Column(
-                      children: [
-                        SansBold("Troyano viajero", 30.0),
-                        SizedBox(height: 15),
-                        Sans(
-                            "Web system developed for my university to automate administrative processes related to academic mobility tracking and approval. Built using JavaScript, with Node.js handling the server-side logic.",
-                            15),
-                        SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/icons/js.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                            SizedBox(width: 10),
-                            Image.asset(
-                              'assets/icons/nodejs.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                            SizedBox(width: 10),
-                            Image.asset(
-                              'assets/icons/mysql.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    width: widthDevice / 3,
-                    child: Column(
-                      children: [
-                        SansBold("JFK extracurricular activities", 30.0),
-                        SizedBox(height: 15),
-                        Sans("Web system developed for JFK School as an enrollment platform for sports and extended learning activities. Built with PHP and Apache as the server stack, the system is designed for parents to simplify the enrollment process.", 15),
-                        SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/icons/php.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                            SizedBox(width: 10),
-                            Image.asset(
-                              'assets/icons/apache.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                            SizedBox(width: 10),
-                            Image.asset(
-                              'assets/icons/mysql.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                            SizedBox(width: 10),
-                            Image.asset(
-                              'assets/icons/docker.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: widthDevice / 2.5,
-                    child: CarouselSlider(
-                      options: CarouselOptions(
-                        height: 400.0,
-                        enlargeCenterPage: true,
-                        viewportFraction: 1,
-                        aspectRatio: 16 / 9,
-                        initialPage: 0,
-                      ),
-                      items: JFK.map((url) {
-                        return Container(
-                          margin: EdgeInsets.symmetric(horizontal: 5.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
-                            child: Image.asset(
-                              url,
-                              fit: BoxFit.cover,
-                              width: double.infinity,
-                              height: double.infinity,
-                            ),
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  /*SizedBox(
-                    width: widthDevice / 3,
-                    child: CarouselSlider(
-                      options: CarouselOptions(
-                        height: 300.0,
-                        enlargeCenterPage: true,
-                        viewportFraction: 1.0,
-                        aspectRatio: 16 / 9,
-                        initialPage: 0,
-                      ),
-                      items: movilidad_academica.map((url) {
-                        return ClipRRect(
-                          borderRadius: BorderRadius.circular(15),
-                          child: Image.asset(
-                            url,
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ),*/
-                  SizedBox(
-                    width: widthDevice / 3,
-                    child: Column(
-                      children: [
-                        SansBold("JFK administrative part", 30.0),
-                        SizedBox(height: 15),
-                        Sans(
-                            "It's the administrative part of the extracurricular activities in where they manage the activities, capacities and type of groups available fo the parents. Also they have the same capabilities as the other system but wit a superadmin privalage.",
-                            15),
-                        SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/icons/php.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                            SizedBox(width: 10),
-                            Image.asset(
-                              'assets/icons/apache.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                            SizedBox(width: 10),
-                            Image.asset(
-                              'assets/icons/mysql.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                            SizedBox(width: 10),
-                            Image.asset(
-                              'assets/icons/docker.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+      drawer: WebDrawer(),
+      backgroundColor: Colors.white,
+      body: NestedScrollView(
+        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+          return <Widget>[
+            SliverAppBar(
+              backgroundColor: Colors.white,
+              iconTheme: IconThemeData(size: 25, color: Colors.black),
+              flexibleSpace: FlexibleSpaceBar(),
+              title: TabsWebList(),
+            )
+          ];
+        },
+        body: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // Header Works
+                SizedBox(height: 40),
+                SansBold("Works", 40),
+                SizedBox(height: 60),
 
-              Column(
-                children: [
-                  SizedBox(height: 40),
-                  SansBold("Projects", 40),
-                ],),
-              SizedBox(height: 20),
+                // Troyano viajero
+                _buildProjectCard(
+                  context,
+                  widthDevice,
+                  isImageLeft: true,
+                  title: "Troyano viajero",
+                  description: "Web system developed for my university to automate administrative processes related to academic mobility tracking and approval. Built using JavaScript, with Node.js handling the server-side logic.",
+                  techIcons: [
+                    'assets/icons/js.png',
+                    'assets/icons/nodejs.png',
+                    'assets/icons/mysql.png',
+                  ],
+                  images: movilidad_academica,
+                ),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    width: widthDevice / 3,
-                    child: Column(
-                      children: [
-                        SansBold("Portafolio", 30.0),
-                        SizedBox(height: 15),
-                        Sans(
-                            "A web resume showcasing my skills, projects and experiences of my professional path. Responsive for mobil and desktop devices, with the implementation of flutter. This because wanted to deepen my understanding of multiplatform development.",
-                            15),
-                        SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/icons/flutter.png',
-                              height: 35,
-                              width: 35,
-                            ),
-                            SizedBox(width: 10),
-                            Image.asset(
-                              'assets/icons/dart.png',
-                              height: 30,
-                              width: 30,
-                            ),
-                            SizedBox(width: 10),
-                            Image.asset(
-                              'assets/icons/firebase.png',
-                              height: 35,
-                              width: 35,
-                            ),
-                            SizedBox(width: 10),
-                            SizedBox(height: 5),
-                          ],
-                        ),
-                        SansBold("Repository", 16),
-                        SizedBox(height: 2),
-                        UrlLinks(
-                            url: "https://github.com/SebasChips/portafolio",
-                            image: "assets/github.svg"),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: widthDevice / 2.5,
-                    child: CarouselSlider(
-                      options: CarouselOptions(
-                        height: 400.0,
-                        enlargeCenterPage: true,
-                        viewportFraction: 1.0,
-                        aspectRatio: 16 / 9,
-                        initialPage: 0,
-                      ),
-                      items: movilidad_academica.map((url) {
-                        return ClipRRect(
-                          borderRadius: BorderRadius.circular(15),
-                          child: Image.asset(
-                            url,
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    width: widthDevice / 2.5,
-                    child: CarouselSlider(
-                      options: CarouselOptions(
-                        height: 400.0,
-                        enlargeCenterPage: true,
-                        viewportFraction: 1.0,
-                        aspectRatio: 21 / 12,
-                        initialPage: 0,
-                      ),
-                      items: bit_by_bit.map((url) {
-                        return ClipRRect(
-                          borderRadius: BorderRadius.circular(15),
-                          child: Image.asset(
-                            url,
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                  SizedBox(
-                    width: widthDevice / 3,
-                    child: Column(
-                      children: [
-                        SansBold("BitByBit", 30.0),
-                        SizedBox(height: 15),
-                        Sans(
-                            "A react native Multi-platform system (Android and web) designed to promote early interest in school and technology through educational games that teach basic programming concepts, helping children develop a passion for coding and encouraging them to stay in school.",
-                            15),
-                        SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/icons/js.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                            SizedBox(width: 10),
-                            Image.asset(
-                              'assets/icons/react.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                            SizedBox(width: 10),
-                            Image.asset(
-                              'assets/icons/firebase.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 5),
-                        SansBold("Repository & APK", 16),
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SizedBox(height: 2),
-                              UrlLinks(
-                                  url:
-                                      "https://github.com/SebasChips/BitbyBit.git",
-                                  image: "assets/github.svg"),
-                              UrlLinks(
-                                  url:
-                                      "https://github.com/SebasChips/BitbyBit.git",
-                                  image: "assets/apk.svg"),
-                              SizedBox(height: 10),
-                            ])
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
+                SizedBox(height: 80),
 
+                // JFK extracurricular activities
+                _buildProjectCard(
+                  context,
+                  widthDevice,
+                  isImageLeft: false,
+                  title: "JFK extracurricular activities",
+                  description: "Web system developed for JFK School as an enrollment platform for sports and extended learning activities. Built with PHP and Apache as the server stack, the system is designed for parents to simplify the enrollment process.",
+                  techIcons: [
+                    'assets/icons/php.png',
+                    'assets/icons/apache.png',
+                    'assets/icons/mysql.png',
+                    'assets/icons/docker.png',
+                  ],
+                  images: JFK,
+                ),
 
-            ],
+                SizedBox(height: 80),
+
+                // JFK administrative part
+                _buildProjectCard(
+                  context,
+                  widthDevice,
+                  isImageLeft: true,
+                  title: "JFK administrative part",
+                  description: "It's the administrative part of the extracurricular activities where they manage the activities, capacities and type of groups available for the parents. Also they have the same capabilities as the other system but with superadmin privileges.",
+                  techIcons: [
+                    'assets/icons/php.png',
+                    'assets/icons/apache.png',
+                    'assets/icons/mysql.png',
+                    'assets/icons/docker.png',
+                  ],
+                  images: JFK, // Usando las mismas imágenes o crear nuevas
+                ),
+
+                SizedBox(height: 80),
+
+                // Projects Header
+                SansBold("Projects", 40),
+                SizedBox(height: 60),
+
+                // Portafolio
+                _buildProjectCard(
+                  context,
+                  widthDevice,
+                  isImageLeft: false,
+                  title: "Portafolio",
+                  description: "A web resume showcasing my skills, projects and experiences of my professional path. Responsive for mobile and desktop devices, with the implementation of flutter. This because I wanted to deepen my understanding of multiplatform development.",
+                  techIcons: [
+                    'assets/icons/flutter.png',
+                    'assets/icons/dart.png',
+                    'assets/icons/firebase.png',
+                  ],
+                  images: portafolio,
+                  showLinks: true,
+                  linkTitle: "Repository",
+                  links: [
+                    {"url": "https://github.com/SebasChips/portafolio", "image": "assets/github.svg"},
+                  ],
+                ),
+
+                SizedBox(height: 80),
+
+                // BitByBit
+                _buildProjectCard(
+                  context,
+                  widthDevice,
+                  isImageLeft: true,
+                  title: "BitByBit",
+                  description: "A react native Multi-platform system (Android and web) designed to promote early interest in school and technology through educational games that teach basic programming concepts, helping children develop a passion for coding and encouraging them to stay in school.",
+                  techIcons: [
+                    'assets/icons/js.png',
+                    'assets/icons/react.png',
+                    'assets/icons/firebase.png',
+                  ],
+                  images: bit_by_bit,
+                  showLinks: true,
+                  linkTitle: "Repository, Web & APK",
+                  links: [
+                    {"url": "https://bit-by-bit-a7551.firebaseapp.com", "image": "assets/web.svg"},
+                    {"url": "https://github.com/SebasChips/BitbyBit.git", "image": "assets/github.svg"},
+                    {"url": "https://github.com/SebasChips/BitbyBit.git", "image": "assets/apk.svg"},
+                  ],
+                ),
+
+                SizedBox(height: 60),
+              ],
+            ),
           ),
-        ));
+        ),
+      ),
+    );
+  }
+
+  Widget _buildProjectCard(
+      BuildContext context,
+      double widthDevice, {
+        required bool isImageLeft,
+        required String title,
+        required String description,
+        required List<String> techIcons,
+        required List<String> images,
+        bool showLinks = false,
+        String linkTitle = "",
+        List<Map<String, String>> links = const [],
+      }) {
+    Widget imageSection = Container(
+      width: widthDevice * 0.4,
+      height: 280,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 10,
+            offset: Offset(0, 5),
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: CarouselSlider(
+          options: CarouselOptions(
+            height: 280,
+            enlargeCenterPage: false,
+            viewportFraction: 1.0,
+            aspectRatio: 16 / 9,
+            initialPage: 0,
+            autoPlay: true,
+            autoPlayInterval: Duration(seconds: 4),
+            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            autoPlayCurve: Curves.fastOutSlowIn,
+          ),
+          items: images.map((url) {
+            return Container(
+              width: double.infinity,
+              child: Image.asset(
+                url,
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: 280,
+              ),
+            );
+          }).toList(),
+        ),
+      ),
+    );
+
+    Widget contentSection = Container(
+      width: widthDevice * 0.35,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SansBold(title, 32.0),
+          SizedBox(height: 20),
+          Sans(description, 16),
+          SizedBox(height: 30),
+
+          // Tech Icons
+          Wrap(
+            spacing: 15,
+            runSpacing: 10,
+            children: techIcons.map((icon) {
+              return Container(
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade100,
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.grey.shade300),
+                ),
+                child: Image.asset(
+                  icon,
+                  height: 40,
+                  width: 40,
+                ),
+              );
+            }).toList(),
+          ),
+
+          // Links section
+          if (showLinks) ...[
+            SizedBox(height: 25),
+            SansBold(linkTitle, 16),
+            SizedBox(height: 10),
+            Wrap(
+              spacing: 15,
+              children: links.map((link) {
+                return UrlLinks(
+                  url: link["url"]!,
+                  image: link["image"]!,
+                );
+              }).toList(),
+            ),
+          ],
+        ],
+      ),
+    );
+
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: isImageLeft
+            ? [imageSection, SizedBox(width: 40), contentSection]
+            : [contentSection, SizedBox(width: 40), imageSection],
+      ),
+    );
   }
 }
